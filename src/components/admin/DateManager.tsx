@@ -7,7 +7,6 @@ import {
     ToggleLeft,
     ToggleRight,
     AlertTriangle,
-    Plus,
     Trash2,
     Sparkles,
     Package
@@ -19,7 +18,7 @@ import {
     useAdminServices,
     useAdminServiceAvailability
 } from '../../hooks/useAdmin';
-import type { DateAvailability, TimeSlot, Service } from '../../types';
+import type { DateAvailability } from '../../types';
 import './DateManager.css';
 
 interface DateManagerProps {
@@ -30,11 +29,10 @@ interface DateManagerProps {
 }
 
 export function DateManager({ date, initialAvailability, onClose, onSave }: DateManagerProps) {
-    const { createOrUpdateDate, toggleDateOpen, setOverride } = useAdminDates();
+    const { createOrUpdateDate, setOverride } = useAdminDates();
     const {
         timeSlots,
         fetchTimeSlots,
-        createTimeSlot,
         deleteTimeSlot,
         generateTimeSlots
     } = useAdminTimeSlots();

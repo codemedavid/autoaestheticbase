@@ -12,7 +12,6 @@ import {
     CheckCircle,
     XCircle,
     AlertCircle,
-    MoreVertical,
     Eye
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
@@ -27,7 +26,6 @@ export function BookingsManager() {
         error,
         fetchBookings,
         updateBookingStatus,
-        deleteBooking,
         clearError
     } = useAdminBookings();
     const { services, fetchServices } = useAdminServices();
@@ -77,16 +75,6 @@ export function BookingsManager() {
         fetchBookings();
         if (selectedBooking?.id === bookingId) {
             setSelectedBooking(null);
-        }
-    };
-
-    const handleDelete = async (bookingId: string) => {
-        if (confirm('Are you sure you want to delete this booking?')) {
-            await deleteBooking(bookingId);
-            fetchBookings();
-            if (selectedBooking?.id === bookingId) {
-                setSelectedBooking(null);
-            }
         }
     };
 
@@ -193,19 +181,19 @@ export function BookingsManager() {
                                     <FileText size={14} />
                                     <span>{getServiceName(booking.service_id)}</span>
                                 </div>
-                                {booking.time_slot?.date_availability?.date && (
+                                {(booking as any).time_slot?.date_availability?.date && (
                                     <div className="booking-info-row">
                                         <Calendar size={14} />
                                         <span>
-                                            {format(parseISO(booking.time_slot.date_availability.date), 'MMM d, yyyy')}
+                                            {format(parseISO((booking as any).time_slot.date_availability.date), 'MMM d, yyyy')}
                                         </span>
                                     </div>
                                 )}
-                                {booking.time_slot && (
+                                {(booking as any).time_slot && (
                                     <div className="booking-info-row">
                                         <Clock size={14} />
                                         <span>
-                                            {booking.time_slot.start_time?.slice(0, 5)} - {booking.time_slot.end_time?.slice(0, 5)}
+                                            {(booking as any).time_slot.start_time?.slice(0, 5)} - {(booking as any).time_slot.end_time?.slice(0, 5)}
                                         </span>
                                     </div>
                                 )}

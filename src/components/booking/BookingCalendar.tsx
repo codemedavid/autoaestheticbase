@@ -13,7 +13,6 @@ import {
     addMonths,
     subMonths,
     isToday,
-    isPast,
     startOfWeek,
     endOfWeek,
     isBefore,

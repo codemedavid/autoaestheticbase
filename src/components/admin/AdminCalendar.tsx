@@ -5,9 +5,7 @@ import {
     Calendar as CalendarIcon,
     Check,
     X,
-    AlertTriangle,
-    Clock,
-    Users
+    AlertTriangle
 } from 'lucide-react';
 import {
     format,
@@ -15,7 +13,6 @@ import {
     endOfMonth,
     eachDayOfInterval,
     isSameMonth,
-    isSameDay,
     addMonths,
     subMonths,
     isToday,

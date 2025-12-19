@@ -3,7 +3,6 @@ import {
     Calendar,
     Package,
     ClipboardList,
-    Settings,
     LogOut,
     Menu,
     X,

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
 import type {
     DateAvailability,
@@ -8,7 +8,6 @@ import type {
     Booking,
     CreateDateAvailabilityInput,
     CreateTimeSlotInput,
-    UpdateDateAvailabilityInput
 } from '../types';
 import { format } from 'date-fns';
 
