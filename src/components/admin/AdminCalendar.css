@@ -1,0 +1,250 @@
+.admin-calendar {
+    background: var(--color-bg-card);
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #B8956F, #D4AF7A, #C9A86C, #D4AF7A, #B8956F) 1;
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-6);
+    backdrop-filter: blur(20px);
+}
+
+.admin-calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-4);
+}
+
+.admin-calendar-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--color-text-primary);
+}
+
+.admin-calendar-title h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.admin-calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    padding: var(--spacing-3);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+}
+
+.legend-open {
+    background: var(--color-success);
+}
+
+.legend-closed {
+    background: var(--color-error);
+}
+
+.legend-override {
+    background: var(--color-warning);
+}
+
+.legend-unconfigured {
+    background: var(--color-text-muted);
+}
+
+.admin-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.admin-calendar-weekday {
+    padding: var(--spacing-2);
+    text-align: center;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.admin-calendar-day {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-2);
+    background: var(--color-bg-tertiary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.admin-calendar-day:hover:not(:disabled) {
+    background: var(--color-bg-glass);
+    border-color: var(--color-border-hover);
+    transform: scale(1.05);
+}
+
+.admin-calendar-day:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.admin-calendar-day.other-month {
+    opacity: 0.3;
+}
+
+.admin-calendar-day.past {
+    opacity: 0.5;
+}
+
+.admin-calendar-day.today {
+    border-color: var(--color-accent-primary);
+}
+
+.admin-calendar-day.today .day-number {
+    color: var(--color-accent-primary);
+    font-weight: 700;
+}
+
+.admin-calendar-day.selected {
+    background: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
+}
+
+.admin-calendar-day.selected .day-number {
+    color: white;
+}
+
+/* Status-based styling */
+.admin-calendar-day.open {
+    background: var(--color-success-soft);
+}
+
+.admin-calendar-day.closed {
+    background: var(--color-error-soft);
+}
+
+.admin-calendar-day.override {
+    background: var(--color-warning-soft);
+}
+
+.admin-calendar-day.unconfigured {
+    background: var(--color-bg-tertiary);
+}
+
+.day-number {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.day-indicators {
+    display: flex;
+    gap: 2px;
+}
+
+.indicator-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.indicator-icon.open {
+    color: var(--color-success);
+}
+
+.indicator-icon.closed {
+    color: var(--color-error);
+}
+
+.indicator-icon.override {
+    color: var(--color-warning);
+}
+
+.admin-calendar-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-4);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Responsive */
+/* Responsive */
+@media (max-width: 480px) {
+    .admin-calendar {
+        padding: var(--spacing-4);
+        margin: var(--spacing-4) 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .admin-calendar-legend {
+        gap: var(--spacing-2);
+        padding: var(--spacing-3);
+        margin-bottom: var(--spacing-4);
+        justify-content: center;
+    }
+
+    .legend-item {
+        font-size: 10px;
+    }
+
+    .admin-calendar-header {
+        margin-bottom: var(--spacing-4);
+        padding: 0 var(--spacing-2);
+    }
+
+    .admin-calendar-title h2 {
+        font-size: var(--font-size-base);
+    }
+
+    .admin-calendar-grid {
+        gap: 2px;
+    }
+
+    .admin-calendar-weekday {
+        padding: var(--spacing-1);
+        font-size: 10px;
+    }
+
+    .admin-calendar-day {
+        padding: 2px;
+        min-height: 40px;
+    }
+
+    .day-number {
+        font-size: 12px;
+    }
+
+    .indicator-icon {
+        width: 6px;
+        height: 6px;
+    }
+
+    .day-indicators {
+        gap: 1px;
+    }
+}

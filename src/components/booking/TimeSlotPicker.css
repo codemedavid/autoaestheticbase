@@ -1,0 +1,121 @@
+.time-slot-picker {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-6);
+}
+
+.time-slot-picker.loading,
+.time-slot-picker.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    gap: var(--spacing-3);
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+.time-slot-picker.empty h3 {
+    margin-top: var(--spacing-2);
+}
+
+.time-slot-picker.empty p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.time-slot-header {
+    margin-bottom: var(--spacing-6);
+}
+
+.time-slot-header h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-2);
+}
+
+.time-slot-header p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--spacing-3);
+}
+
+.time-slot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-4);
+    background: var(--color-bg-tertiary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.time-slot:hover {
+    background: var(--color-bg-glass);
+    border-color: var(--color-border-hover);
+    transform: scale(1.02);
+}
+
+.time-slot.selected {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+.time-range {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.time-to {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.slot-check {
+    position: absolute;
+    top: var(--spacing-2);
+    right: var(--spacing-2);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-primary);
+    color: white;
+    border-radius: var(--radius-full);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .time-slot-picker {
+        padding: var(--spacing-4);
+    }
+
+    .time-slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-2);
+    }
+
+    .time-slot {
+        padding: var(--spacing-3);
+    }
+
+    .time-range {
+        font-size: var(--font-size-sm);
+    }
+}
