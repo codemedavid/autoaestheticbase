@@ -87,7 +87,7 @@ Please let me know if there is anything else I need to do.`;
 
         // Slight delay to let user see "Copied!" before redirecting
         setTimeout(() => {
-            window.open(`https://www.facebook.com/messages/t/AutoAestheticWebsite`, '_blank');
+            window.open(`https://www.facebook.com/messages/t/61585250916082`, '_blank');
         }, 800);
     };
 
