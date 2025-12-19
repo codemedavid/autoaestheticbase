@@ -12,7 +12,8 @@ import {
     CheckCircle,
     XCircle,
     AlertCircle,
-    Eye
+    Eye,
+    Trash2
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { useAdminBookings, useAdminServices } from '../../hooks/useAdmin';
@@ -26,6 +27,7 @@ export function BookingsManager() {
         error,
         fetchBookings,
         updateBookingStatus,
+        deleteBooking,
         clearError
     } = useAdminBookings();
     const { services, fetchServices } = useAdminServices();
@@ -75,6 +77,16 @@ export function BookingsManager() {
         fetchBookings();
         if (selectedBooking?.id === bookingId) {
             setSelectedBooking(null);
+        }
+    };
+
+    const handleDelete = async (bookingId: string) => {
+        if (confirm('Are you sure you want to delete this booking? This action cannot be undone.')) {
+            await deleteBooking(bookingId);
+            fetchBookings();
+            if (selectedBooking?.id === bookingId) {
+                setSelectedBooking(null);
+            }
         }
     };
 
@@ -226,6 +238,13 @@ export function BookingsManager() {
                                         </button>
                                     </>
                                 )}
+                                <button
+                                    className="btn btn-ghost btn-sm"
+                                    onClick={() => handleDelete(booking.id)}
+                                    title="Delete booking"
+                                >
+                                    <Trash2 size={14} />
+                                </button>
                             </div>
                         </div>
                     ))}
